@@ -1,0 +1,6 @@
+Open Git Bash here
+git init
+git add .
+git status
+git commit -m "描述"
+git push

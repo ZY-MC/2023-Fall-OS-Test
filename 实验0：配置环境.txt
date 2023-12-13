@@ -30,7 +30,7 @@ git push --all
 在自己创建的实验目录下执行如下命令：
 注意：执行如下命令需要在自己创建的实验目录下。
 
-docker run -it --mount type=bind,source=E:\GardenerOS,destination=/mnt openeuler/openeuler
+docker run -it --mount type=bind,source=$(PWD),destination=/mnt openeuler/openeuler
 
 通过如上命令启动容器后，本地创建的实验目录就可以直接通过容器里的/mnt目录直接访问了。
 
@@ -86,8 +86,6 @@ rustup component add rust-src
 在工作目录下创建一个名为 rust-toolchain 的文件，以限制rust的版本，文件内容如下：
 nightly-2022-10-19
 
-说明：访问工作目录有两种方式：在本地通过~/GardenerOS/目录访问；在容器内通过/mnt/目录访问。
-
 5. 安装qemu
 
 安装qemu5.2
@@ -110,9 +108,7 @@ make -j$(nproc) install
 qemu-system-riscv64 --version
 qemu-riscv64 --version
 
-需要说明的是后续的实验都将依赖于上述环境，所以请保证上述环境配置没有问题。4e6b43462f01
+需要说明的是后续的实验都将依赖于上述环境，所以请保证上述环境配置没有问题。
 
 最后，可以通过如下命令把自己配置的环境变成自己的docker镜像。
-docker commit -m "ZY configured environment" -a "YaFeng GU" 4e6b43462f01 zyopeneuler
-
-sha256:7e66decccae35b89cee7cc49175c74ce60dfafa8a0a5e56a2d8d3fb62a862d8f
+docker commit -m "New configured environment" -a "Di Zhang" 7f0536274b3a myopeneuler
